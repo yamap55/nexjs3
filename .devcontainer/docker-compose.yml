@@ -1,0 +1,14 @@
+version: "3"
+services:
+  nextjs3:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        WORKDIR: /project
+    volumes:
+      - ..:/project
+    image: nextjs3-image
+    container_name: nextjs3-container
+    tty: true
+    env_file: ../.env # shellスクリプト内でも環境変数として使用するため
